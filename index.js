@@ -19,4 +19,18 @@ class address = {
   }
 }
 
-const myHouse = new apartment('house', 1111, 'Fantastic!')
+class landlord = {
+  constructor(name, phone, email) {
+    this.name = name;
+    this.phone = phone;
+    this.email = email;
+  }
+}
+
+class size = {
+  constructor {
+
+  }
+}
+
+const myHouse = new apartment('house', 1111, 'Fantastic!', )
