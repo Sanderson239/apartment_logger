@@ -6,6 +6,7 @@ class apartment = {
     this.landlord = landlord;
     this.size = size;
     this.price = price;
+    this.favorite = false;
   }
 }
 
@@ -28,8 +29,11 @@ class landlord = {
 }
 
 class size = {
-  constructor {
-
+  constructor(sqrFeet, bedrooms, bathroom, beds) {
+    this.sqrFeet = fqrFeet;
+    this.bedrooms = bedrooms;
+    this.bathroom = bathroom;
+    this.beds = beds;
   }
 }
 
