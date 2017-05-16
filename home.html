@@ -18,7 +18,7 @@
     </header>
     <div class="main-content">
       <div class="main-content-child">
-        <div class="map">
+        <div id="map">
 
         </div>
         <div class="button">
@@ -26,13 +26,16 @@
         </div>
       </div>
       <div class="main-content-child">
-        <ul>
-          <li>text</li>
-          <li>text</li>
-          <li>text</li>
-          <li>text</li>
+        <ul class="apartment-list">
+
         </ul>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./googleMaps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A&callback=initMap"
+    async defer></script>
+
   </body>
 </html>
