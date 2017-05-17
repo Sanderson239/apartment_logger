@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>Address Input</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
   <h1>Input Apartment Information</h1>
-  <input type="text" name="Street Name" value="Street Name">
-  <input type="text" name="City" value="City">
+  <form class="address-info-form" action="home.html" method="post">
+  <input type="text" name="Apartment Name" placeholder="Apartment Name">
+  <input type="text" name="Street Name" placeholder="Street Name">
+  <input type="text" name="City" placeholder="City">
   <select>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -61,17 +64,22 @@
     <option value="WI">Wisconsin</option>
     <option value="WY">Wyoming</option>
   </select>
-  <input type="number" name="Zip Code" value="Zip Code">
-  <input type="number" name="Square Footage" value="Square Footage">
-  <input type="number" name="Number of Bedrooms" value="Number of Bedrooms">
-  <input type="number" name="Number of Beds" value="Number of Beds">
-  <input type="number" name="Number of Bathrooms" value="Number of Bathrooms">
-  <input type="number" name="Monthly Price" value="Monthly Price">
-  <input type="text" name="Apartment Description" value="Apartment Description">
+  <input type="number" name="Zip Code" placeholder="Zip Code">
+  <input type="number" name="Square Footage" placeholder="Square Footage">
+  <input type="number" name="Number of Bedrooms" placeholder="Number of Bedrooms">
+  <input type="number" name="Number of Beds" placeholder="Number of Beds">
+  <input type="number" name="Number of Bathrooms" placeholder="Number of Bathrooms">
+  <input type="number" name="Monthly Price" placeholder="Monthly Price">
+  <input type="text" name="Apartment Description" placeholder="Apartment Description">
   <h2>Landlord Contact Information</h2>
-  <input type="text" name="Full Name" value="Full Name">
-  <input type="tel" name="Telephone" value="Telephone">
-  <input type="email" name="Email" value="Email">
+  <input type="text" name="Full Name" placeholder="Full Name">
+  <input type="tel" name="Telephone" placeholder="Telephone">
+  <input type="email" name="Email" placeholder="Email">
+  <button class="submit" type="submit" name="submit">submit</button>
+</form>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./index.js"></script>
+  <script src="./apartment-input.js"></script>
 </body>
 </html>

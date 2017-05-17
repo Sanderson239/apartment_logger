@@ -20,21 +20,21 @@
       <div class="main-content-child">
         <div id="map">
           <script>
-     function initMap() {
-       var uluru = {lat: -25.363, lng: 131.044};
-       var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 4,
-         center: uluru
-       });
-       var marker = new google.maps.Marker({
-         position: uluru,
-         map: map
-       });
-     }
+    //  function initMap() {
+    //    var uluru = {lat: -25.363, lng: 131.044};
+    //    var map = new google.maps.Map(document.getElementById('map'), {
+    //      zoom: 4,
+    //      center: uluru
+    //    });
+    //    var marker = new google.maps.Marker({
+    //      position: uluru,
+    //      map: map
+    //    });
+    //  }
 
-     module.exports = {
-       map
-     }
+    //  module.exports = {
+    //    map
+    //  }
    </script>
         </div>
         <div class="button">
@@ -43,14 +43,13 @@
       </div>
       <div class="main-content-child">
         <ul class="apartment-list">
-
+          <li><a href="./address-input.html">Placeholder form link</a></li>
         </ul>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>s
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A&callback=initMap" async defer></script>
     <script src="./index.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A&callback=initMap"
-    async defer></script>
 
 
   </body>

@@ -1,4 +1,38 @@
-const map = require(./index.html)
+// const map = require(./index.html)
+
+
+var apartments = [];
+
+
+function initMap() {
+  console.log(google);
+  var uluru = {lat: 49.2827, lng: -123.1207};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+
+
+  const place = new Address('350 W Georgia St', 'Vancouver', 'BC', 'CA', '32843');
+  const owner = new Landlord('FirstName LastName', '111-111-1111', '111@email.com');
+  const footage = new Size(500, 3, 3, 4);
+  const myHouse = new Apartment('house', place, 'Fantastic!', owner, footage, 300);
+  apartments = [myHouse];
+
+  apartments.forEach(apartment => {
+    apartment.fetchGpsCoordinates()
+    .then(coordinates => {
+      let marker = new google.maps.Marker({
+        position: coordinates,
+        map: map
+      })
+    })
+  })
+}
 
 class Apartment {
   constructor(name, address, description, landlord, size, price) {
@@ -11,40 +45,38 @@ class Apartment {
     this.favorite = false;
     apartments.push(this);
     this.createUrl()
-    this.fetchGpsCoordinates()
-    this.createMapMarker()
   }
 
 
   createUrl() {
     let aptAdd = this.address
-    let addressRegex = `${aptAdd.street.replace(' ', '+')},+${aptAdd.city.replace(' ', '+')},+{aptAdd.state}`
+    let addressRegex = `${aptAdd.street.replace(' ', '+')},+${aptAdd.city.replace(' ', '+')},+${aptAdd.state}`
     this.markerUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressRegex}&key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A`
   }
 
   fetchGpsCoordinates() {
-  fetch(this.markerUrl)
-    .then(url => {
-        return url.json()
-    })
+    console.log(this.markerUrl);
+  return fetch(this.markerUrl)
     .then(response => {
-      this.gpsCoordinates = response.results[0].geometry.location
+        return response.json()
+    })
+    .then(data => {
+      console.log(data);
+      return data.results[0].geometry.location
    })
   }
 
   //not sure if there is a scope issue here
   createMapMarker() {
-    let coordinates = this.coordinates;
+    let coordinates = this.gpsCoordinates;
     let marker = new google.maps.Marker({
       position: coordinates,
-      // map: map
+      map: map
     })
     this.mapMarker = marker;
   }
 
-//   this.createUrl()
-//   this.fetchGpsCoordinates()
-//   this.createMapMarker()
+
 
 }
 
@@ -82,11 +114,9 @@ function createList(sites) {
   }
 }
 
-const place = new Address('1111 dr', 'Vancouver', 'BC', 'CA', '32843');
-const owner = new Landlord('FirstName LastName', '111-111-1111', '111@email.com');
-const footage = new Size(500, 3, 3, 4);
-const myHouse = new Apartment('house', place, 'Fantastic!', owner, footage, 300);
 
-let apartments = [myHouse, myHouse, myHouse, myHouse];
+
+
+
 
 createList();
