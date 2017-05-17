@@ -1,22 +1,20 @@
-$('.address-info-form').submit(function(event) {
-  getUserInput();
-});
+$('.address-info-form').submit(getUserInput);
 
-function getUserInput() {
-  let aptName = $("input[name='Apartment Name']").value;
-  let streetName = $("input[name='Street Name']").value;
-  let city = $("input[name='City']").value;
-  let state = $("select").value;
-  let zipCode = $("input[name='Zip Code']").value;
-  let sqrFootage = $("input[name='Square Footage']").value;
-  let numBedrooms = $("input[name='Number of Bedrooms']").value;
-  let numBeds = $("input[name='Number of Beds']").value;
-  let numBathrooms = $("input[name='Number of Bathrooms']").value;
-  let monthlyPrice = $("input[name='Monthly Price']").value;
-  let aptDescription = $("input[name='Apartment Description']").value;
-  let landlordName = $("input[name='Full Name']").value;
-  let telephone = $("input[name='Telephone']").value;
-  let email = $("input[name='email']").value;
+function getUserInput(event) {
+  event.preventDefault();
+  let aptName = $("input[name='Apartment Name']").val();
+  let streetName = $("input[name='Street Name']").val();
+  let city = $("input[name='City']").val();
+  let state = $("select").val();
+  let zipCode = $("input[name='Zip Code']").val();
+  let sqrFootage = $("input[name='Square Footage']").val();
+  let numBedrooms = $("input[name='Number of Bedrooms']").val();
+  let numBeds = $("input[name='Number of Beds']").val();
+  let numBathrooms = $("input[name='Number of Bathrooms']").val();
+  let monthlyPrice = $("input[name='Monthly Price']").val();
+  let aptDescription = $("input[name='Apartment Description']").val();
+  let landlordName = $("input[name='Full Name']").val();
+  let telephone = $("input[name='Telephone']").val();
+  let email = $("input[name='email']").val();
   let apartment = new Apartment(aptName, new Address(streetName, city, state, 'USA', zipCode), aptDescription, new Landlord(landlordName, telephone, email), new Size(sqrFootage, numBedrooms, numBathrooms, numBeds), monthlyPrice);
-  console.log(apartment);
 }

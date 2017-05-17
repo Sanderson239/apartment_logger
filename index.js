@@ -5,7 +5,7 @@ var apartments = [];
 
 
 function initMap() {
-  console.log(google);
+  // console.log(google);
   var uluru = {lat: 49.2827, lng: -123.1207};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
@@ -44,6 +44,7 @@ class Apartment {
     this.price = price;
     this.favorite = false;
     apartments.push(this);
+    console.log(this);
     this.createUrl()
   }
 
@@ -55,13 +56,13 @@ class Apartment {
   }
 
   fetchGpsCoordinates() {
-    console.log(this.markerUrl);
+    // console.log(this.markerUrl);
   return fetch(this.markerUrl)
     .then(response => {
         return response.json()
     })
     .then(data => {
-      console.log(data);
+      // console.log(data);
       return data.results[0].geometry.location
    })
   }
