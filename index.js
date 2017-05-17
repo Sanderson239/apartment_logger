@@ -8,6 +8,41 @@ class Apartment {
     this.price = price;
     this.favorite = false;
   }
+
+  apartments.push(this);
+
+  createUrl() {
+    let aptAdd = this.address
+    let addressRegex = `${aptAdd.street.replace(' ', '+')},+${aptAdd.city.replace(' ', '+')},+{aptAdd.state}`
+    this.markerUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${addressRegex}&key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A`
+  }
+
+  fetchGpsCoordinates() {
+  fetch(this.markerUrl)
+    .then(url => {
+        return url.json()
+    })
+    .then(response => {
+      this.gpsCoordinates = response.results[0].geometry.location
+   })
+  }
+
+  //not sure if there is a scope issue here
+  createMapMarker() {
+    let coordinates = this.coordinates;
+    let marker = new google.maps.Marker({
+      position: coordinates,
+      map: map
+    })
+    this.mapMarker = marker;
+  }
+
+  opbjectToMapMarker() {
+    createUrl()
+    fetchGpsCoordinates()
+    createMapMarker()
+  }
+
 }
 
 class Address {
@@ -42,7 +77,6 @@ function createList(sites) {
   for (let apartment of apartments) {
     ul.append(`<li>${apartment.name}</li>`);
   }
-  return ul;
 }
 
 const place = new Address('1111 dr', 'Vancouver', 'BC', 'CA', '32843');
