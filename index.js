@@ -1,3 +1,5 @@
+const map = require(./index.html)
+
 class Apartment {
   constructor(name, address, description, landlord, size, price) {
     this.name = name;
@@ -7,9 +9,12 @@ class Apartment {
     this.size = size;
     this.price = price;
     this.favorite = false;
+    apartments.push(this);
+    this.createUrl()
+    this.fetchGpsCoordinates()
+    this.createMapMarker()
   }
 
-  apartments.push(this);
 
   createUrl() {
     let aptAdd = this.address
@@ -32,16 +37,14 @@ class Apartment {
     let coordinates = this.coordinates;
     let marker = new google.maps.Marker({
       position: coordinates,
-      map: map
+      // map: map
     })
     this.mapMarker = marker;
   }
 
-  opbjectToMapMarker() {
-    createUrl()
-    fetchGpsCoordinates()
-    createMapMarker()
-  }
+//   this.createUrl()
+//   this.fetchGpsCoordinates()
+//   this.createMapMarker()
 
 }
 
