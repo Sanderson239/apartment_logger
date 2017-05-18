@@ -1,10 +1,11 @@
 $('.address-info-form').submit(getUserInput);
 
-// $('go-to-address-input').click(toggleVisible);
-//
-// function toggleVisible() {
-//   $('.modal').toggle('invisible');
-// }
+$('.go-to-address-input').click(toggleVisible);
+
+function toggleVisible() {
+  console.log('clicked');
+  $('.modal')[0].classList.toggle('invisible');
+}
 
 function getUserInput(event) {
   event.preventDefault();
