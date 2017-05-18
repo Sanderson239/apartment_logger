@@ -1,29 +1,27 @@
-// const map = require(./index.html)
 
+// if (!localStorage.apts) {
+//   // var apartments = [];
+// }
 
 var apartments = [];
 
-
 function initMap() {
-  // console.log(google);
-  var uluru = {lat: 49.2827, lng: -123.1207};
+  var vancouver = {lat: 49.2827, lng: -123.1207};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
+    center: vancouver
   });
 
 
-  const place = new Address('350 W Georgia St', 'Vancouver', 'BC', 'CA', '32843');
-  const owner = new Landlord('FirstName LastName', '111-111-1111', '111@email.com');
-  const footage = new Size(500, 3, 3, 4);
-  const myHouse = new Apartment('house', place, 'Fantastic!', owner, footage, 300);
-  apartments = [myHouse];
 
+
+
+  if (localStorage.apts) {
+    apartments = JSON.parse(localStorage.apts);
+    createList();
+  }
   apartments.forEach(apartment => {
+    apartment.fetchGpsCoordinates = Apartment.prototype.fetchGpsCoordinates
     apartment.fetchGpsCoordinates()
     .then(coordinates => {
       let marker = new google.maps.Marker({
@@ -44,7 +42,6 @@ class Apartment {
     this.price = price;
     this.favorite = false;
     apartments.push(this);
-    console.log(this);
     this.createUrl()
   }
 
@@ -56,26 +53,15 @@ class Apartment {
   }
 
   fetchGpsCoordinates() {
-    // console.log(this.markerUrl);
   return fetch(this.markerUrl)
     .then(response => {
         return response.json()
     })
     .then(data => {
-      // console.log(data);
       return data.results[0].geometry.location
    })
   }
 
-  //not sure if there is a scope issue here
-  createMapMarker() {
-    let coordinates = this.gpsCoordinates;
-    let marker = new google.maps.Marker({
-      position: coordinates,
-      map: map
-    })
-    this.mapMarker = marker;
-  }
 
 
 
@@ -114,10 +100,3 @@ function createList(sites) {
     ul.append(`<li>${apartment.name}</li>`);
   }
 }
-
-
-
-
-
-
-createList();

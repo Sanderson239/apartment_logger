@@ -10,7 +10,7 @@ var sampleUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=Winne
 
 function createUrl(apartment) {
   let aptAdd = apartment.address
-  let addressRegex = `${aptAdd.street.replace(' ', '+')},+${aptAdd.city.replace(' ', '+')},+{aptAdd.state}`
+  let addressRegex = `${aptAdd.street.replace(' ', '+')},+${aptAdd.city.replace(' ', '+')},+${aptAdd.state}`
   return `https://maps.googleapis.com/maps/api/geocode/json?address=${addressRegex}&key=AIzaSyAehpePt0KKDTY-K7nVNN2Rfs_ap20Bo-A`
 }
 

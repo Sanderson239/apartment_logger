@@ -17,4 +17,6 @@ function getUserInput(event) {
   let telephone = $("input[name='Telephone']").val();
   let email = $("input[name='email']").val();
   let apartment = new Apartment(aptName, new Address(streetName, city, state, 'USA', zipCode), aptDescription, new Landlord(landlordName, telephone, email), new Size(sqrFootage, numBedrooms, numBathrooms, numBeds), monthlyPrice);
+  console.log(apartments);
+  localStorage.setItem('apts', JSON.stringify(apartments));
 }
