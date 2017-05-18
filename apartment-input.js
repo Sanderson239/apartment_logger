@@ -1,5 +1,11 @@
 $('.address-info-form').submit(getUserInput);
 
+// $('go-to-address-input').click(toggleVisible);
+//
+// function toggleVisible() {
+//   $('.modal').toggle('invisible');
+// }
+
 function getUserInput(event) {
   event.preventDefault();
   let aptName = $("input[name='Apartment Name']").val();

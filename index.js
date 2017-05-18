@@ -1,9 +1,10 @@
 
-// if (!localStorage.apts) {
-//   // var apartments = [];
-// }
+if (!localStorage.apts) {
+  localStorage.setItem('apts', JSON.stringify([]))
+};
 
-var apartments = [];
+var apartments = JSON.parse(localStorage.apts);
+
 
 function initMap() {
   var vancouver = {lat: 49.2827, lng: -123.1207};
