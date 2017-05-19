@@ -98,6 +98,7 @@ class Size {
 function createList(sites) {
   var ul = $('.apartment-list');
   for (let apartment of apartments) {
-    ul.append(`<li>${apartment.name}</li>`);
+    ul.append(`<li class="apt-label">${apartment.name}</li>`);
+    ul.append(`<div class="apt-description invisible">hihihihihi</div>`)
   }
 }

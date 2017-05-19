@@ -1,16 +1,148 @@
+.modal-container {
+  position: fixed;
+  z-index: 1;
+  background-color: grey;
+  border: .2em solid black;
+  width: 70%;
+  height: 100%
+  max-width: 700px;
+  max-height: 700px;
+  left: 50%;
+  top: 10%;
+  padding: 1em;
+  border-radius: 5px;
+  text-align: center;
+
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.invisible {
+  display: none;
+}
+
+.modal:target:before {
+  display: block;
+}
+
+.modal::before {
+  content: "";
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0,0,0,.8);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+}
+
+.go-to-address-input {
+  float: right;
+  height: 2.5%;
+  width: 50%;
+  border-radius: 5%;
+}
+
+.apartment-list-parent {
+  width: 30%;
+  top: 0px;
+  border: 5px solid black;
+  margin-left: 6%;
+  margin-right: 0;
+  float: right;
+  border-radius: 5px;
+}
+
+.apartment-list li {
+  border-bottom: 3px solid grey;
+  padding: .5em;
+  padding-bottom: 0;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.apartment-list div {
+  
+}
+
+.extra-space {
+  height: 10em;
+  width: 10em;
+  float: right;
+}
+
 * {
   list-style-type: none;
 }
 
+.apartment-logger {
+  background-color: darkgreen;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.main-content {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+body {
+  background-color: lightgreen;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+}
+
+.home-header {
+  background-color: darkgreen;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .nav-bar {
-  /*float: right;*/
+  text-align: right;
+  background-color: green;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 #map {
-  height: 200px;
-  width: 200px;
+  height: 30em;
+  width: 35em;
+  border: 5px solid black;
+  border-radius: 5%;
+}
+
+a:hover {
+  color: blue;
 }
 
 .main-content-child {
   display: inline-block;
+  margin-right:
 };
+
+footer {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  background-color: green;
+  bottom: 0;
+  position: absolute;
+}
+
+html {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.copyright {
+  background-color: green;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
+}

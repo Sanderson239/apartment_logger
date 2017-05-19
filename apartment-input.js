@@ -2,8 +2,13 @@ $('.address-info-form').submit(getUserInput);
 
 $('.go-to-address-input').click(toggleVisible);
 
+$('apt-label').click(showAptInfo)
+
+function showAptInfo {
+  $(this).classList.toggle('invisible');
+}
+
 function toggleVisible() {
-  console.log('clicked');
   $('.modal')[0].classList.toggle('invisible');
 }
 
