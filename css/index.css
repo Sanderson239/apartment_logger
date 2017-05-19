@@ -58,7 +58,11 @@ header {
   border-radius: 5px;
 }
 
-.apartment-list li {
+.apt-description {
+  display: none;
+}
+
+#apartment-list li {
   border-bottom: 3px solid grey;
   padding: .5em;
   padding-bottom: 0;
@@ -66,8 +70,8 @@ header {
   font-size: 1.4em;
 }
 
-.apartment-list div {
-  
+#apartment-list div {
+
 }
 
 .extra-space {

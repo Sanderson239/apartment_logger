@@ -5,11 +5,14 @@ if (!localStorage.apts) {
 
 var apartments = JSON.parse(localStorage.apts);
 
+function showAptInfo() {
+  $(this).next().slideToggle(400);
+}
 
 function initMap() {
-  var vancouver = {lat: 49.2827, lng: -123.1207};
+  var vancouver = {lat: 37.7749, lng: -122.4194};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 8,
+    zoom: 12,
     center: vancouver
   });
 
@@ -96,9 +99,15 @@ class Size {
 }
 
 function createList(sites) {
-  var ul = $('.apartment-list');
+  var ul = $('#apartment-list');
   for (let apartment of apartments) {
     ul.append(`<li class="apt-label">${apartment.name}</li>`);
-    ul.append(`<div class="apt-description invisible">hihihihihi</div>`)
+    ul.append(`<div class="apt-description slide">address: ${apartment.address.street}, ${apartment.address.state} ${apartment.address.zip} | Price: $${apartment.price}.00 | Size: ${apartment.size.squrFeet}sqr ft | ${apartment.size.bedrooms} bedrooms | ${apartment.beds} beds | ${apartment.size.bathroom} bathrooms
+
+    <p>Description: ${apartment.description}</p>
+
+    Link to Listing: <a href ='galvanize.com'>galvanize.com</a> <h4>Landlord Contact Info</h4>
+    Name: ${apartment.landlord.name} | Tele: ${apartment.landlord.phone}</div>`)
+    $('#apartment-list li').unbind("click").click(showAptInfo);
   }
 }
